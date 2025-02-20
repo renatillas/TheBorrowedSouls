@@ -182,6 +182,7 @@ public class pause_menu : MonoBehaviour
         pauseMenu.SetActive(true);
         HUD.SetActive(false);
         buttonsPause.SetActive(false);
+        buttonsControls.SetActive(false);
         respawnBackground.SetActive(true);
         buttonsRespawn.SetActive(true);
         menuAudio.GetComponents<AudioSource>()[2].Play();

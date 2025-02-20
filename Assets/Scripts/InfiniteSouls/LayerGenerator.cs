@@ -23,14 +23,23 @@ public class LayerGenerator : MonoBehaviour
 
         PlatformGenerator.InitiateValuesInUnits(SpaceWidthInUnits, SpaceHeightInUnits, PartitionMinSizeInUnits, PlatformMinSizeInUnits, MaxPosibleDivisions, BoundariesProbability);
 
+        // Coloca el generador de plataformas en la posición inicial especificada
         PlatformGenerator.gameObject.transform.position = Position;
 
+        // Genera la cantidad especificada de capas de plataformas
         for (int CurrentLayer = 1; CurrentLayer <= LayerAmount; CurrentLayer++)
         {
-            PlatformGenerator.GeneratePlatformsAtPosition(new Vector3(Position.x, Position.y + CurrentLayer * SeparationBetweenLayersInUnits * BlockSize, Position.z));
+            // Calcula la posición de la nueva capa en base a la separación y el tamaño de bloque
+            Vector3 LayerPosition = new Vector3(Position.x, Position.y + CurrentLayer * SeparationBetweenLayersInUnits * BlockSize, Position.z);
+
+            // Genera plataformas en la posición calculada para la capa actual
+            PlatformGenerator.GeneratePlatformsAtPosition(LayerPosition);
+
+            // Agrega las plataformas generadas a la lista de capas
             Layers.Add(PlatformGenerator.GetGeneratedPlatforms());
         }
 
+        // Reconstruye la malla de navegación tras generar las plataformas
         PlatformGenerator.gameObject.GetComponent<NavMeshSurface>().RemoveData();
         PlatformGenerator.gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
     }

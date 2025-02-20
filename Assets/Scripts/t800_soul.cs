@@ -19,6 +19,7 @@ public class t800_soul : MonoBehaviour
     public LayerMask isGround, isPlayer, isGroundnotfrfr;
     public RaycastHit rayHit;
 
+    private bool WasStopped;
 
     //Idle-Patroling
     public Vector3 walkPoint;
@@ -270,4 +271,14 @@ public class t800_soul : MonoBehaviour
         walkPointSet = false;
     }
 
+    public void OutOfRange()
+    {
+        WasStopped = t800.isStopped;
+        t800.isStopped = true;
+    }
+
+    public void InOfRange()
+    {
+        t800.isStopped = WasStopped;
+    }
 }

@@ -24,6 +24,7 @@ public class StatsMenu : MonoBehaviour
         InfiniteSoulsManager = FindObjectOfType<InfiniteSoulsManager>();
     }
 
+    //Método que modifica el texto de StatsMenu para mostrar las estadísticas que se le proporcionan
     public void ShowStats(float CombatDurationValue, float AirTimeValue, float AccuracyValue, int DamageRecievedValue, int HealthHealedValue, int GravityChangesValue, int DoubleJumpsValue, int DashesValue, int RoomNumber, InfiniteSoulsManager.RoomCR RoomCRValue)
     {
         IsShowing = true;

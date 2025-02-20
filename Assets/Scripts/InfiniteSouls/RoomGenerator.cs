@@ -42,6 +42,7 @@ public class RoomGenerator : MonoBehaviour
         RoomLength = LengthInUnits;
     }
 
+    //Asignar los parametros de la generación de plataformas
     public void SetPlatfomGenerationParameters(int MinimunPartitionSizeInUnits, int MinimunPlatfomSizeInUnits, int MaxDivisions, float BoundariesProbability)
     {
         MinPartitionSize = MinimunPartitionSizeInUnits;
@@ -50,6 +51,7 @@ public class RoomGenerator : MonoBehaviour
         PlatformBoundariesProbability = BoundariesProbability;
     }
 
+    //Asignar los parámetros de la generación de capas
     public void SetLayerGenerationParameters(int AmountOfLayers, int SeparationBetweenLayersInUnits)
     {
         LayerAmount = AmountOfLayers;
@@ -64,6 +66,7 @@ public class RoomGenerator : MonoBehaviour
         t800SpawnProbability = t800Probability;
     }
 
+    //Metódo que genera una sala en la posición dada
     public void GenerateRoomAtPosition(Vector3 Position)
     {
         if (BoundsGenerator == null || LayerGenerator == null || EnemyGenerator == null) return;

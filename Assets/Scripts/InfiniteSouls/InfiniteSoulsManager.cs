@@ -129,7 +129,7 @@ public class InfiniteSoulsManager : MonoBehaviour
         GodsScar
     }
 
-    private RoomCR CurrentRoomCR = RoomCR.Easy; //La dificultad de la sala actual (Easy por default para empezar desde cero cada vez que se inicia)
+    private RoomCR CurrentRoomCR = RoomCR.Hard; //La dificultad de la sala actual (Easy por default para empezar desde cero cada vez que se inicia)
 
     private int CurrentRoomNumber = 0; //El número de la sala actual
 
@@ -347,11 +347,11 @@ public class InfiniteSoulsManager : MonoBehaviour
 
 
         //Debug
-        Debug.Log("For " + EnemyAmount + " enemies:");
-        Debug.Log("Min Combat Duration " + MinCombatDuration);
-        Debug.Log("Max Combat Duration " + MaxCombatDuration);
-        Debug.Log("Min Damage and Heal " + MinDamageAndHeal);
-        Debug.Log("Max Damage and Heal " + MaxDamageAndHeal);
+        //Debug.Log("For " + EnemyAmount + " enemies:");
+        //Debug.Log("Min Combat Duration " + MinCombatDuration);
+        //Debug.Log("Max Combat Duration " + MaxCombatDuration);
+        //Debug.Log("Min Damage and Heal " + MinDamageAndHeal);
+        //Debug.Log("Max Damage and Heal " + MaxDamageAndHeal);
     }
 
     public void PlayerChangedGravity()
@@ -403,6 +403,7 @@ public class InfiniteSoulsManager : MonoBehaviour
         switch (CurrentRoomCR)
         {
             case RoomCR.Easy:
+                //Normalizar los datos recabados según lo esperado del jugador en Easy
                 CombatDurationNormalized = NormalizeValue((1 / CombatDuration), (1 / MaxCombatDuration), (1 / MinCombatDuration));
                 AirTimeNormalized = NormalizeValue(AirTime / CombatDuration, EasyMinAirTimePercentage, EasyMaxAirTimePercentage);
                 DamageAndHealNormalized = NormalizeValue(HealthHealed - DamageTaken, MinDamageAndHeal, MaxDamageAndHeal);
@@ -412,6 +413,7 @@ public class InfiniteSoulsManager : MonoBehaviour
                 DashesNormalized = NormalizeValue(Dashes, EasyMinDashes, EasyMaxDashes);
                 break;
             case RoomCR.Medium:
+                //Normalizar los datos recabados según lo esperado del jugador en Medium
                 CombatDurationNormalized = NormalizeValue((1 / CombatDuration), (1 / MaxCombatDuration), (1 / MinCombatDuration));
                 AirTimeNormalized = NormalizeValue(AirTime / CombatDuration, MediumMinAirTimePercentage, MediumMaxAirTimePercentage);
                 DamageAndHealNormalized = NormalizeValue(HealthHealed - DamageTaken, MinDamageAndHeal, MaxDamageAndHeal);
@@ -421,6 +423,7 @@ public class InfiniteSoulsManager : MonoBehaviour
                 DashesNormalized = NormalizeValue(Dashes, MediumMinDashes, MediumMaxDashes);
                 break;
             case RoomCR.Hard:
+                //Normalizar los datos recabados según lo esperado del jugador en Hard
                 CombatDurationNormalized = NormalizeValue((1 / CombatDuration), (1 / MaxCombatDuration), (1 / MinCombatDuration));
                 AirTimeNormalized = NormalizeValue(AirTime / CombatDuration, HardMinAirTimePercentage, HardMaxAirTimePercentage);
                 DamageAndHealNormalized = NormalizeValue(HealthHealed - DamageTaken, MinDamageAndHeal, MaxDamageAndHeal);
@@ -430,6 +433,7 @@ public class InfiniteSoulsManager : MonoBehaviour
                 DashesNormalized = NormalizeValue(Dashes, HardMinDashes, HardMaxDashes);
                 break;
             case RoomCR.GodsScar:
+                //Normalizar los datos recabados según lo esperado del jugador en GodsScar
                 CombatDurationNormalized = NormalizeValue((1 / CombatDuration), (1 / MaxCombatDuration), (1 / MinCombatDuration));
                 AirTimeNormalized = NormalizeValue(AirTime / CombatDuration, GodsScarMinAirTimePercentage, GodsScarMaxAirTimePercentage);
                 DamageAndHealNormalized = NormalizeValue(HealthHealed - DamageTaken, MinDamageAndHeal, MaxDamageAndHeal);
@@ -442,7 +446,7 @@ public class InfiniteSoulsManager : MonoBehaviour
                 break;
         }
 
-
+        //Calcular las puntuaciones del jugador en cada dato
         float CombatDurationPerformance = CombatDurationWeight * CombatDurationNormalized; //A menor duración del combate, más puntuación.
         float AirTimePerformance = AirTimeWeight * AirTimeNormalized; //A más tiempo en el aire, mayor puntuación.
         float DamageAndHealPerformance = DamageAndHealWeight * DamageAndHealNormalized;
@@ -451,8 +455,10 @@ public class InfiniteSoulsManager : MonoBehaviour
         float DoubleJumpsPerformance = DoubleJumpsWeight * DoubleJumpsNormalized;
         float DashesPerformance = DashesWeight * DashesNormalized;
 
+        //Calcular el rendimiento global del jugador
         float PlayerPerformance = CombatDurationPerformance + AirTimePerformance + DamageAndHealPerformance + AccuracyPerformance + GravityChangesPerformance + DoubleJumpsPerformance + DashesPerformance;
 
+        //Aumentar o reducir la dificultad basado en los resultados del jugador
         switch (PlayerPerformance)
         {
             case < 0f:

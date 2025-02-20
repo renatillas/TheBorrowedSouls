@@ -414,7 +414,7 @@ MonoBehaviour:
   MaxMinEnemiesMedium: 2
   MinApplyBoundariesMedium: 0.45
   MaxApplyBoundariesMedium: 0.65
-  MinEnemyDensityMedium: 0
+  MinEnemyDensityMedium: 0.5
   MaxEnemyDensityMedium: 0.75
   MinT800ProbabilityMedium: 0.25
   MaxT800ProbabilityMedium: 0.5
@@ -433,10 +433,10 @@ MonoBehaviour:
   MinLayersHard: 10
   MinMinEnemiesHard: 1
   MaxMinEnemiesHard: 1
-  MinApplyBoundariesHard: 0.75
-  MaxApplyBoundariesHard: 1
+  MinApplyBoundariesHard: 0.65
+  MaxApplyBoundariesHard: 0.8
   MinEnemyDensityHard: 0.75
-  MaxEnemyDensityHard: 0.9
+  MaxEnemyDensityHard: 0.85
   MinT800ProbabilityHard: 0.7
   MaxT800ProbabilityHard: 0.85
   MinRoomHeightGodsScar: 8
@@ -452,8 +452,8 @@ MonoBehaviour:
   MinMaxDivisionsGodsScar: 15
   MaxMaxDivisonsGodsScar: 15
   MinLayersGodsScar: 10
-  MinMinEnemiesGodsScar: 2
-  MaxMinEnemiesGodsScar: 2
+  MinMinEnemiesGodsScar: 1
+  MaxMinEnemiesGodsScar: 1
   MinApplyBoundariesGodsScar: 1
   MaxApplyBoundariesGodsScar: 1
   MinEnemyDensityGodsScar: 0.85
@@ -979,6 +979,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockPrefab: {fileID: 1851436992857836214, guid: a31997b71b9ba084497b3dab046e64d7, type: 3}
   PillarPrefab: {fileID: 1783789168164146580, guid: 0b9781d58fb7ab4448e730459f3b00a5, type: 3}
+  LayerForPillarsToHit:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &1640738864
 Transform:
   m_ObjectHideFlags: 0
@@ -1469,10 +1472,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6265690083892056464, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: 0952d64a57a7c404880bb874c06f6dcb, type: 2}
+    - target: {fileID: 1416166044140438796, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
+      propertyPath: m_Center.z
+      value: 17.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6265690084535404592, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
       propertyPath: player
       value: 
@@ -1481,38 +1484,10 @@ PrefabInstance:
       propertyPath: gameMusic
       value: 
       objectReference: {fileID: 2107102816}
-    - target: {fileID: 7955365693574790311, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8494326301069237435, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 583605771}
-    - target: {fileID: 8494326302170347469, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
-      propertyPath: m_Size.x
-      value: 0.71025157
-      objectReference: {fileID: 0}
-    - target: {fileID: 8494326302170347469, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
-      propertyPath: m_Size.y
-      value: 0.59701157
-      objectReference: {fileID: 0}
-    - target: {fileID: 8494326302170347469, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
-      propertyPath: m_Size.z
-      value: 0.84673333
-      objectReference: {fileID: 0}
-    - target: {fileID: 8494326302170347469, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
-      propertyPath: m_Center.x
-      value: 0.10842857
-      objectReference: {fileID: 0}
-    - target: {fileID: 8494326302170347469, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
-      propertyPath: m_Center.y
-      value: 0.35579398
-      objectReference: {fileID: 0}
-    - target: {fileID: 8494326302170347469, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
-      propertyPath: m_Center.z
-      value: 0.77807933
-      objectReference: {fileID: 0}
     - target: {fileID: 8494326302677505334, guid: 9e200d971dcc59444a384e42a03fc358, type: 3}
       propertyPath: cameraPosition
       value: 

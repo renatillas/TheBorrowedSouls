@@ -164,7 +164,7 @@ public class player_movement : MonoBehaviour
 
 
         //DEBUG
-        Debug.Log(rb.velocity.magnitude);
+        //Debug.Log(rb.velocity.magnitude);
     }
 
     private void FixedUpdate()
