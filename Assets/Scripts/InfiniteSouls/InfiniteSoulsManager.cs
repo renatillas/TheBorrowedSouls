@@ -129,7 +129,7 @@ public class InfiniteSoulsManager : MonoBehaviour
         GodsScar
     }
 
-    private RoomCR CurrentRoomCR = RoomCR.Hard; //La dificultad de la sala actual (Easy por default para empezar desde cero cada vez que se inicia)
+    private RoomCR CurrentRoomCR = RoomCR.Easy; //La dificultad de la sala actual (Easy por default para empezar desde cero cada vez que se inicia)
 
     private int CurrentRoomNumber = 0; //El número de la sala actual
 
